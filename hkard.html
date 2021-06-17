@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HKard</title>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta charset="utf-8">
+  <style type="text/css">
+    body, html {
+      height: 100%;
+    }
+    #bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0.3;
+      display: none;
+    }
+    #image {
+      position: absolute;
+      width: 100%;
+      display: none;
+    }
+  </style>
+  <script type="text/javascript">
+    function redirect() {
+      var isWx = !!navigator.userAgent.match(/MicroMessenger/i);
+      if (isWx) {
+        document.getElementById("bg").style.display = "block";
+        document.getElementById("image").style.display = "block";
+      } else {
+        window.location.href = "https://hkard.page.link/download";
+      }
+    };
+    window.onload = redirect;
+  </script>
+</head>
+<body>
+  <div id="bg"></div>
+  <img id="image" src="head.png" />
+</body>
+</html>
