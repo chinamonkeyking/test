@@ -15,11 +15,19 @@
   </style>
   <script type="text/javascript">
     function redirect() {
-      var isWx = !!navigator.userAgent.match(/MicroMessenger/i);
-      if (isWx) {
+      var ua = navigator.userAgent.toLocaleLowerCase();
+      var isAndroid = /android/i.test(ua);
+      var isiOS = !!ua.match(/\(i[^;]+;( u;)? cpu.+mac os x/);
+      var isWechat = /micromessenger/i.test(ua);
+
+      if (isWechat) {
         document.getElementById("image").style.display = "block";
+      } else if (isAndroid) {
+        window.location.href = "https://play.google.com/store/apps/details?id=hk.hkard.app";
+      } else if (isiOS) {
+        window.location.href = "https://apps.apple.com/hk/app/hkard-stamps/id1536535531";
       } else {
-        window.location.href = "https://hkard.page.link/download";
+        window.location.href = "https://www.hkard.hk";
       }
     };
     window.onload = redirect;
