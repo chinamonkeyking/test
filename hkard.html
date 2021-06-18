@@ -21,7 +21,11 @@
       var isWechat = /micromessenger/i.test(ua);
 
       if (isWechat) {
-        document.getElementById("image").style.display = "block";
+        if (isiOS) {
+          window.location.href = "https://apps.apple.com/hk/app/hkard-stamps/id1536535531";
+        } else {
+          document.getElementById("image").style.display = "block";
+        }
       } else if (isAndroid) {
         window.location.href = "https://play.google.com/store/apps/details?id=hk.hkard.app";
       } else if (isiOS) {
